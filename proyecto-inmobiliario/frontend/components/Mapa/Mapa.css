@@ -1,0 +1,108 @@
+.mapa-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mapa-titulo {
+  color: #2a3252;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.mapa-instrucciones {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.mapa {
+  height: 600px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.mapa-cargando, .mapa-error {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 1.1rem;
+}
+
+.mapa-cargando {
+  color: #4da8da;
+}
+
+.mapa-error {
+  color: #dc3545;
+}
+
+.mapa-popup {
+  min-width: 200px;
+  padding: 5px;
+}
+
+.mapa-popup h3 {
+  color: #2a3252;
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.mapa-popup p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.mapa-popup-precio {
+  font-size: 1.2rem !important;
+  font-weight: 700;
+  color: #2a3252 !important;
+  margin: 10px 0 !important;
+}
+
+.mapa-popup-link {
+  display: inline-block;
+  background-color: #4da8da;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.mapa-popup-link:hover {
+  background-color: #3a97c9;
+}
+
+.mapa-leyenda {
+  margin-top: 15px;
+  color: #666;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .mapa {
+    height: 400px;
+  }
+  
+  .mapa-titulo {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mapa {
+    height: 350px;
+  }
+  
+  .mapa-popup {
+    min-width: 150px;
+  }
+} 
