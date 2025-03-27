@@ -157,4 +157,4 @@ Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo LICENS
 
 ---
 
-Desarrollado con ❤️ por Urbanest-vAlpha Team 
+Desarrollado por Urbanest-vAlpha Team 
