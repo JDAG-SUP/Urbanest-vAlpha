@@ -13,50 +13,38 @@ Urbanest-vAlpha es una aplicación web que combina un listado de propiedades inm
 
 ## Estructura del Proyecto
 
-El proyecto sigue una arquitectura moderna con Django (backend) y React (frontend):
+El proyecto sigue una arquitectura MVC (Modelo-Vista-Controlador):
 
 ```
 proyecto-inmobiliario/
 │
-├── inmobiliaria_django/        # Backend (Django)
-│   ├── inmobiliaria/           # Configuración principal
-│   ├── propiedades/            # App de Django para propiedades
-│   │   ├── management/         # Comandos personalizados
-│   │   │   └── commands/       # Comandos para entrenar modelo
-│   │   ├── migrations/         # Migraciones de base de datos
-│   │   ├── models.py           # Modelos de datos
-│   │   ├── views.py            # Vistas y API
-│   │   ├── urls.py             # Rutas de API
-│   │   └── train_model.py      # Entrenamiento del modelo
-│   │
-│   ├── db.sqlite3              # Base de datos
-│   └── manage.py               # Script de administración
+├── backend/                   # Parte del servidor (Python/Flask)
+│   ├── model/                 # Datos y modelos
+│   │   └── dataset_10k.csv    # Dataset de propiedades con 10k registros
+│   ├── view/                  # Lógica de negocio
+│   │   └── views.py           # Controladores
+│   ├── urls/                  # Definición de rutas API
+│   │   └── urls.py            # Rutas Flask
+│   └── train_model/           # Entrenamiento del modelo
+│       └── train_model.py     # Script de entrenamiento
 │
-├── frontend/                   # Interfaz de usuario (React)
-│   ├── components/             # Componentes React
-│   │   ├── ModeloPredictivo/   # Formulario de predicción
-│   │   ├── Mapa/               # Visualización geográfica
-│   │   ├── ContenedorBase0/    # Contenedor de listado
-│   │   ├── Viviendas/          # Lista de propiedades
-│   │   ├── Vivienda/           # Detalle de propiedad
-│   │   └── Navegacion/         # Navegación
-│   └── models/                 # Modelos entrenados
-│       └── modelo_entrenado.pkl # Modelo de regresión
-│
-├── public/                     # Archivos estáticos
-│
-├── vite.config.js              # Configuración de Vite
-├── index.html                  # Punto de entrada HTML
-├── package.json                # Dependencias Node
-└── requirements.txt            # Dependencias Python
+└── frontend/                  # Interfaz de usuario (React)
+    ├── components/            # Componentes React
+    │   ├── ModeloPredictivo/  # Formulario de predicción
+    │   ├── Mapa/              # Visualización geográfica
+    │   ├── ContenedorBase0/   # Contenedor de listado
+    │   ├── Viviendas/         # Lista de propiedades
+    │   ├── Vivienda/          # Detalle de propiedad
+    │   └── Navegacion/        # Navegación
+    └── models/                # Modelos entrenados
+        └── modelo_entrenado.pkl  # Modelo de regresión
 ```
 
 ## Tecnologías Utilizadas
 
 ### Backend
 - Python 3.9+
-- Django 4.2+
-- Django REST Framework
+- Flask
 - Pandas
 - Scikit-learn
 
@@ -64,7 +52,6 @@ proyecto-inmobiliario/
 - React
 - React Router
 - Leaflet (mapas)
-- Vite (build tool)
 
 ## Instalación
 
@@ -91,23 +78,17 @@ pip install -r requirements.txt
 npm install
 ```
 
-4. Aplicar migraciones de Django:
+4. Entrenar el modelo predictivo:
 ```bash
-cd inmobiliaria_django
-python manage.py migrate
-```
-
-5. Entrenar el modelo predictivo:
-```bash
-python manage.py train_model
+cd backend/train_model
+python train_model.py
 ```
 
 ## Ejecución
 
-1. Iniciar el servidor Django:
+1. Iniciar el servidor backend:
 ```bash
-cd inmobiliaria_django
-python manage.py runserver
+npm run server
 ```
 
 2. En otra terminal, iniciar el frontend:
@@ -132,15 +113,6 @@ npm run dev
    - Ingresa las características de la propiedad
    - Obtén una estimación del precio de mercado
 
-## API Endpoints
-
-El backend proporciona los siguientes endpoints:
-
-- `GET /api/propiedades/` - Lista todas las propiedades
-- `GET /api/propiedades/{id}/` - Detalles de una propiedad específica
-- `GET /api/estadisticas/` - Estadísticas generales del mercado
-- `POST /api/predecir/` - Predice el precio de una propiedad
-
 ## Contribución
 
 Si deseas contribuir al proyecto, sigue estos pasos:
@@ -154,3 +126,7 @@ Si deseas contribuir al proyecto, sigue estos pasos:
 ## Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo LICENSE para más detalles.
+
+---
+
+Desarrollado con por Urbanest-vAlpha Team 
